@@ -158,7 +158,7 @@ export default function Home() {
                                 <div className="w-8 h-8 rounded-full border border-gray-500"></div>
                             </div>
                         </div>
-                        <h4 className="font-bold text-base">민주주의 훼손과 매도의 극화</h4>
+                        <h4 className="font-bold text-base">민주주의 훼손과 애도의 국화</h4>
                         <p className="text-xs text-gray-500 mt-1">블랙 / 흑백 에디션</p>
                         <div className="flex justify-between items-center mt-6 pt-4 border-t">
                             <span className="font-bold text-sm">키링</span>
@@ -239,7 +239,7 @@ export default function Home() {
                 </div>
 
                 <div className="mt-6 bg-blue-50 border border-blue-200 p-3 rounded text-xs text-blue-800 flex items-center gap-2">
-                    <span className="font-bold">[안내]</span> 반딩 금액은 배송비, 제작비, 오프라인 캠페인 유지 비용으로
+                    <span className="font-bold">[안내]</span> 펀딩 금액은 배송비, 제작비, 오프라인 캠페인 유지 비용으로
                     투명하게 사용됩니다.
                 </div>
             </section>
