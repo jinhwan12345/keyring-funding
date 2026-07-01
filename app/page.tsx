@@ -252,8 +252,8 @@ export default function Home() {
                 </div>
 
                 <div className="mt-6 bg-blue-50 border border-blue-200 p-3 rounded text-xs text-blue-800 flex items-center gap-2">
-                    <span className="font-bold">[안내]</span> 펀딩 금액은 배송비, 제작비, 오프라인 캠페인 유지 비용으로
-                    투명하게 사용됩니다.
+                    <span className="font-bold whitespace-nowrap">[안내]</span>
+                    펀딩 금액은 배송비, 제작비, 오프라인 캠페인 유지 비용으로 투명하게 사용됩니다.
                 </div>
             </section>
 
