@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '@/utils/supabase';
 import { Heart, ChevronRight } from 'lucide-react';
+import Image from 'next/image';
 
 interface FundingData {
     title: string;
@@ -61,7 +62,6 @@ export default function Home() {
 
     return (
         <div className="min-h-screen bg-gray-50 text-gray-900 font-sans">
-            {/* --- HERO / HERO BLOCK (네이비 배경) --- */}
             <section className="bg-[#111827] text-white pt-12 pb-16 px-4">
                 <div className="max-w-4xl mx-auto">
                     {/* 태그 및 날짜 */}
@@ -70,11 +70,11 @@ export default function Home() {
                         <span className="bg-gray-700 px-3 py-1 rounded-full text-blue-400">2025.06.03</span>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-                        {/* 타이틀 및 설명 플레이스홀더 */}
-                        <div className="md:col-span-2 space-y-4">
-                            <div className="h-6 bg-gray-700 rounded w-3/4 animate-pulse"></div>
-                            <div className="h-4 bg-gray-700 rounded w-1/2 animate-pulse"></div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        {/* 타이틀 및 설명 */}
+                        <div className="space-y-4">
+                            <div className="h-6 bg-gray-700 rounded w-3/4"></div>
+                            <div className="h-4 bg-gray-700 rounded w-1/2"></div>
 
                             {/* CTA 버튼 */}
                             <div className="flex gap-3 pt-4">
@@ -90,12 +90,18 @@ export default function Home() {
                             </div>
                         </div>
 
-                        {/* 메인 비주얼 원형 그래픽 오브젝트 */}
-                        <div className="flex justify-center gap-4 bg-gray-800/50 p-6 rounded-lg border border-gray-700">
-                            <div className="w-16 h-16 rounded-full border-2 border-red-600 flex items-center justify-center">
-                                <div className="w-12 h-12 rounded-full bg-red-900/30"></div>
+                        {/* 메인 이미지 */}
+                        <div className="w-full">
+                            <div className="bg-gray-800/30 rounded-xl border border-gray-700/70 p-2 overflow-hidden relative w-full aspect-[2584/1605] shadow-2xl">
+                                <Image
+                                    src="/keyring_main.png"
+                                    alt="잠실의 참정권 운동을 기억하는 법 - 일상속의 올공 내 삶과 잠실민주화"
+                                    fill
+                                    priority
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                    className="object-contain rounded-lg"
+                                />
                             </div>
-                            <div className="w-16 h-16 rounded-full border-2 border-gray-600"></div>
                         </div>
                     </div>
 
@@ -142,10 +148,10 @@ export default function Home() {
 
             <hr className="max-w-4xl mx-auto border-gray-200" />
 
-            {/* --- 리워드 선택 섹션 --- */}
+            {/* --- 리워드 키링 소개 --- */}
             <section className="py-12 px-4 max-w-4xl mx-auto">
                 <span className="bg-blue-100 text-blue-700 text-xs font-bold px-2.5 py-1 rounded">
-                    리워드 — 참정권에 대한 두 가지 태도
+                    리워드 - 참정권에 대한 두 가지 태도
                 </span>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
@@ -153,10 +159,15 @@ export default function Home() {
                     <div
                         className={`border rounded-lg p-5 bg-white transition-all ${selectedReward === 'black' ? 'ring-2 ring-black' : ''}`}
                     >
-                        <div className="bg-black text-white h-36 rounded flex items-center justify-center mb-4">
-                            <div className="w-12 h-12 rounded-full border-2 border-gray-400 flex items-center justify-center">
-                                <div className="w-8 h-8 rounded-full border border-gray-500"></div>
-                            </div>
+                        {/* 이미지 컨테이너: 원본 비율을 유지하며 깔끔하게 노출 */}
+                        <div className="h-90 rounded flex items-center justify-center mb-4 overflow-hidden p-2">
+                            <Image
+                                src="/black_keyring.png"
+                                alt="민주주의 훼손과 애도의 국화"
+                                width={400} // 화면에 보여줄 적절한 가로 크기
+                                height={408} // 741:756 비율에 맞춘 세로 크기
+                                className="object-contain hover:scale-105 transition-transform duration-300"
+                            />
                         </div>
                         <h4 className="font-bold text-base">민주주의 훼손과 애도의 국화</h4>
                         <p className="text-xs text-gray-500 mt-1">블랙 / 흑백 에디션</p>
@@ -171,17 +182,19 @@ export default function Home() {
                         </div>
                     </div>
 
-                    {/* 리워드 2: 컬러 에디션 (인기) */}
+                    {/* 리워드 2: 컬러 에디션 */}
                     <div
                         className={`border rounded-lg p-5 bg-white relative transition-all ${selectedReward === 'color' ? 'ring-2 ring-[#C83727]' : ''}`}
                     >
-                        <span className="absolute top-3 right-3 bg-red-600 text-white text-[10px] font-bold px-2 py-0.5 rounded">
-                            인기
-                        </span>
-                        <div className="bg-[#0B132B] text-white h-36 rounded flex items-center justify-center mb-4">
-                            <div className="w-12 h-12 rounded-full border-2 border-red-600 flex items-center justify-center">
-                                <div className="w-8 h-8 rounded-full bg-red-950/50 border border-red-700"></div>
-                            </div>
+                        {/* 이미지 컨테이너 */}
+                        <div className="h-90 rounded flex items-center justify-center mb-4 overflow-hidden p-2">
+                            <Image
+                                src="/color_keyring.png"
+                                alt="대한민국 재건 태극과 무궁화"
+                                width={400} // 화면에 보여줄 적절한 가로 크기
+                                height={408} // 741:756 비율에 맞춘 세로 크기
+                                className="object-containtransition-transform duration-300"
+                            />
                         </div>
                         <h4 className="font-bold text-base">대한민국 재건 태극과 무궁화</h4>
                         <p className="text-xs text-gray-500 mt-1">레드-블루 / 컬러 에디션</p>
